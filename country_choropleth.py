@@ -4,7 +4,7 @@ import pandas as pd
 ply.sign_in('rmm99', 'ko9rku5kqy')
 
 
-country_death_rates= pd.readcsv('/Users/rebeccamuratore/Documents/BridgeUp/DataViz/disease-distribution/country_death_rates.csv')
+country_death_rates= pd.read_csv('/Users/rebeccamuratore/Documents/BridgeUp/DataViz/disease-distribution/country_death_rates.csv')
 
 
 for col in country_death_rates.columns:
@@ -19,31 +19,36 @@ geo_deets = dict(
 
 
 map_layout = dict(
-	title = 'Incidents of Death By All Causes By Country',
+	title = 'Incidents of Death By All Causes Per Country in 2012',
 	geo =  geo_deets
 	)
 
 blue_scale = [[0.0, 'white'], [1.0, 'blue']]
 
-country_death_rates['text'] = country_death_rates['']
+country_death_rates['text'] = country_death_rates['Country'] + "<br> Communicable & other Group I Diseases: " + country_death_rates['Communicable & other Group I'] + "<br> Noncommunicable Diseases: " + country_death_rates['Noncommunicable diseases'] + "<br> Injuries: " + country_death_rates['Injuries']
 
+for value in country_death_rates['Year']:
+	if value == 2012:
+		country_death_rates['text'] 
+	#else:
+		#print('error')
 
 stuff_plotly_needs = [ dict(
 		type='choropleth',
 		colorscale= blue_scale,
 		autocolorscale= False,
-		locations = country_death_rates['country'],
+		locations = country_death_rates['Country'],
 		z = country_death_rates['All Causes'].astype(float),
-		locationmode= 'world-countries',
+		locationmode= 'country names',
 		text= country_death_rates['text'],
 		marker = dict(
 			line = dict(
-				color='white',
-				width= 2
+				color='black',
+				width= 1
 				)
 			),
 		colorbar= dict(
-			title= 'Age-standerdized mortality rate by cause (per 100,000 population'
+			title= 'Age-standardized mortality rate (per 100,000 population)'
 			)
 	)
 ]
@@ -52,5 +57,5 @@ plotly_fig = dict(
 		layout= map_layout
 	)
 
-ply.plot(plotly_fig, filename='awesome-sauce-map')
+ply.plot(plotly_fig, filename='Deaths-by-countries-map')
 
