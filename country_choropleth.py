@@ -4,7 +4,7 @@ import pandas as pd
 ply.sign_in('rmm99', 'ko9rku5kqy')
 
 
-country_death_rates= pd.read_csv('/Users/rebeccamuratore/Documents/BridgeUp/DataViz/disease-distribution/country_death_rates.csv')
+country_death_rates= pd.read_csv('country_death_rates.csv')
 
 
 for col in country_death_rates.columns:
