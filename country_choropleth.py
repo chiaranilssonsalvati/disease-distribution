@@ -37,7 +37,7 @@ map_layout = dict(
 	geo =  geo_deets
 	)
 
-blue_scale = [[0.0, 'white'], [1.0, 'blue']]
+violet_scale = [[0.0, 'lavender'], [1.0, 'indigo']]
 
 #country_death_rates_2012['text'] = country_death_rates_2012['Country'] + "<br> Communicable & other Group I Diseases: " + country_death_rates_2012['Communicable & other Group I'] + "<br> Noncommunicable Diseases: " + country_death_rates_2012['Noncommunicable diseases'] + "<br> Injuries: " + country_death_rates_2012['Injuries']
 
@@ -51,7 +51,7 @@ for value in country_death_rates['Year']:
 
 stuff_plotly_needs = [ dict(
 		type='choropleth',
-		colorscale= blue_scale,
+		colorscale= violet_scale,
 		autocolorscale= False,
 		locations = country_death_rates_2012['Country'],
 		z = country_death_rates_2012['All Causes'],
