@@ -4,7 +4,7 @@ import communicable_choropleth as comm
 import country_choropleth as count 
 import region_bar as reg 
 import injuries_choropleth as inj 
-import line_graph as lg 
+# import line_graph as lg 
 import noncommunicable_choropleth  as nc 
 
 def shouldquit(user_letter):
@@ -111,6 +111,8 @@ def choro_menu():
 	else:
 		error()
 
+	choices()
+
 def bar_menu():
 	region = raw_input('''Select a WHO region you would like to learn about.
 		Type 1 for the Americas, 2 for Africa, 3 for Europe, 4 for the Eastern Mediterranean, 5 for Southeast Asia, or 6 for the Western Pacific.
@@ -126,7 +128,12 @@ def bar_menu():
 		diseases = []
 		x = 0
 		while x == 0:
-			d = raw_input("Input a disease you would like to view information on.  If your list is complete, type 'end'. ").lower().capitalize()
+			d = raw_input("Input a disease you would like to view information on.  If your list is complete, type 'end'. ")
+			if d.upper() == 'HIV' or d.upper()=='HIV/AIDS':
+				d = 'HIV/AIDS'
+			else:
+				d = d.lower().capitalize()
+			
 			if d != 'End':
 				diseases.append(d)
 			else:
