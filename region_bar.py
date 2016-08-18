@@ -37,13 +37,11 @@ def make_hist(region, diseases=['HIV/AIDS', 'Malaria', 'Tuberculosis', 'Stroke',
 	
 	y_vals_overall = {}
 	x_vals = range(25, 80*len(labels)+25, 80)
-	print(ages)
 	for a in ages:
 		y_vals_overall[a]=[]
 		for c in causes:
 			for row in read:
 				if row[0] == c:
-					print(c)
 					y_vals_overall[a].append(float(row[headers.index(a)]))
 
 
