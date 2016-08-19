@@ -148,7 +148,7 @@ def bar_menu():
 		ages = []
 		x = 0
 		while x == 0:
-			a = raw_input("Type 1 to add 'All ages' to your graph; type 2 for '5-14 years'; type 3 for '15-29 years'; type 4 for '30-49 years'; type 5 for '50-59 years'; type 6 for '60-69 years'; type 7 for '70+ years'.  When your list is complete, type 'end'. ").lower()
+			a = raw_input("\nType 1 to add 'All ages' to your graph; type 2 for '5-14 years'; type 3 for '15-29 years'; type 4 for '30-49 years'; type 5 for '50-59 years'; type 6 for '60-69 years'; type 7 for '70+ years'.  When your list is complete, type 'end'. ").lower()
 			if a == 'end':
 				x += 1
 			elif a == '1':
@@ -172,7 +172,12 @@ def bar_menu():
 	else:
 		ages=[' All ages (total) years', '5-14 years', '15-29  years', '30-49 years', '50-59  years', '60-69  years', '70+  years']
 
-	reg.reg_bar(region, diseases=diseases, ages=ages)
+	s = []
+	for a in ages:
+		if a not in s:
+			s.append(a)
+
+	reg.reg_bar(region, diseases=diseases, ages=s)
 	after_bar()
 
 def after_bar():
@@ -191,7 +196,8 @@ def error():
 	choices()
 
 def goodbye():
-	print('Thank you for using the program. Goodbye!')
+	s = u'\U0001F44B'
+	print('Thank you for using the program. Goodbye! '+s)
 	quit()
 
 welcome()
